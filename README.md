@@ -125,4 +125,7 @@ TODO
     - 記述時: bash --noprofile --norc -eo  pipefail {0}
   - シェル指定は明示的にすべき
   - デフォルトシェル（ワークフローファイルのトップレベル defaults.run.shell: bash ）で指定すると楽
+- Concurrency
+  - ワークフローの同時実行で不整合が発生する場合、多重機動が問題になるためその対処
+  
 
