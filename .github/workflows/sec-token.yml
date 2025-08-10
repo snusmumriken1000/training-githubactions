@@ -1,0 +1,8 @@
+name: GTIHUB_TOKEN secret
+on: push
+jobs:
+  token:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ secrets.GITHUB_TOKEN }}" # secrets コンテキストから取得
+      - run: echo "${{ github.token }}" # github コンテキストから取得

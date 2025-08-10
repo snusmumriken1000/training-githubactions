@@ -1,0 +1,16 @@
+name: Test
+on:
+  pull_request:
+    paths: ['go/**/*.go'] # Goのファイル変更したPRの時に実行
+defaults:
+  run:
+    shell: bash
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@4 # チェックアウト
+      - uses: actions/setup-go@v5 # 言語セットアップ
+        with:
+          go-version: '1.22'
+      - run: go test go/excellent/*.go # テスト実行
