@@ -1,0 +1,10 @@
+name: Concurrency cancel
+on: workflow_dispatch
+concurrency:
+  group: con-group
+  cancel-in-progress: true # 実行中のワークフローのキャンセルを有効化
+jobs:
+  sleep:
+   runs-on: ubuntu-latest
+   steps:
+     - run: sleep 120
