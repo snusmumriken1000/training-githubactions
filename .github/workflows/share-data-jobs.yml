@@ -1,0 +1,17 @@
+name: Share data btw jobs
+on: workflow_dispatch
+jobs:
+  first:
+    runs-on: ubuntu-latest
+    steps:
+      - id: generate # ステップIDを設定
+        run: echo "result=hello" >> "${GITHUB_OUTPUT}" # ステップレベルので出力値
+    outputs:
+      result: ${{ steps.generate.outputs.result }} # ジョブレベルでの出力値
+  second:
+    runs-on: ubuntu-latest
+    needs: [first] # 依存するジョブIDの指定
+    steps:
+      - env:
+          RESULT: ${{ needs.first.outputs.result }} # 依存ジョブの出力値を参照
+        run: echo "${RESULT}"
