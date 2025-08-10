@@ -1,0 +1,12 @@
+name: Sequential jobs
+on: workflow_dispatch
+jobs:
+  first:
+   steps:
+    - run: sleep 10 && echo "First job"
+  second:
+   steps:
+    - run: sleep 10 && echo "Second job"
+  third:
+   steps:
+    - run: sleep 10 && echo "Third job"
