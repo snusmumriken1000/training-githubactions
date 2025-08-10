@@ -1,10 +1,10 @@
-name: tracing options
+name: Bash tracing options
 on: workflow_dispatch
 jobs:
   trace:
     runs-on: ubuntu-latest
     steps:
       - run: | # Bash のトレーシングオプションを有効化し、実行したコマンドをログ出力
-        set -x
-        date
-        hostname
+          set -x
+          date
+          hostname
