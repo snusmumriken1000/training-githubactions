@@ -1,4 +1,4 @@
-name: Bash tracing options
+name: tracing options
 on: workflow_dispatch
 jobs:
   trace:
