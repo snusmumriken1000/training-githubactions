@@ -127,5 +127,8 @@ TODO
   - デフォルトシェル（ワークフローファイルのトップレベル defaults.run.shell: bash ）で指定すると楽
 - Concurrency
   - ワークフローの同時実行で不整合が発生する場合、多重機動が問題になるためその対処
-  
-
+  - 自動キャンセル
+    - PRをトリガーにするワークフローは、最新コード以外でジョブ実行する必要性が低いので、古いジョブ実行をキャンセルする `concurrency.cancel-in.progress: true` 
+- ワークフローコマンドを使うと、echo コマンド経由でランナーへ特殊な操作を指示できる
+  - `workflow-command parameter1=<data1>,parameter1=<data2>::<command value>` 
+  - `::debug::<message>`
