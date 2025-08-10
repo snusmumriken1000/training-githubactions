@@ -132,3 +132,7 @@ TODO
 - ワークフローコマンドを使うと、echo コマンド経由でランナーへ特殊な操作を指示できる
   - `workflow-command parameter1=<data1>,parameter1=<data2>::<command value>` 
   - `::debug::<message>`
+  - デバッグログはデフデフォルトで無効化されているので、GUIで「Enable debug logging」にチェックが必要
+- Bash のトレーシングオプション
+  - デバッグログよりももっとシンプルに実行コマンドと結果を知りたい場合は、`set -x`
+
