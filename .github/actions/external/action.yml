@@ -1,0 +1,7 @@
+name: Call external script
+description: call external script
+runs:
+  using: composite
+  steps:
+    - run: "${GITHUB_ACTION_PATH}/hello.sh"
+      shell: bash
