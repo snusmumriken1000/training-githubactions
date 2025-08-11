@@ -5,4 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "::notice::hello"
+          echo "::error::error output"
+          echo "::warning::warning output"
+          echo "::notice::notice output"
