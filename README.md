@@ -196,5 +196,5 @@ TODO
   - `GITHUB_TOKEN` をアクションから参照
     - メタデータ構文では secrets の参照ができないが、`secrets.GITHUB_TOKEN` に限っては裏技でアクセスできる。github コンテキスト経由でアクセスする。 `github.token`
   - sh スクリプトを切り出したら、環境変数 `GITHUB_ACTION_PATH` 経由すれば実行できる。`run: "${GITHUB_ACTION_PATH}/script.sh"`
-
+    - .shに対してPermission deniedが出る場合は、`git update-index --add --chmod=+x hello.sh `
 
