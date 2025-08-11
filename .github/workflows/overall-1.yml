@@ -27,7 +27,7 @@ jobs:
         with:
           name: art1
           path: downloaded
-      - run: cat downloaded/date.txt
+      - run: cat downloaded/art.txt
       - run: echo "::notice::[END] Download artifact"
   bash-tracing:
     runs-on: ubuntu-latest
