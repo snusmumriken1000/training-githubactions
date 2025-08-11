@@ -37,4 +37,11 @@ jobs:
           set -x
           echo "bash tracing"
       - run: echo "::notice::[END] Bash tracing"
-  
+  share-above-steps:
+    runs-on: ubuntu-latest
+    steps:
+      - id: source
+        run: echo "RESULT=result-1" > "${GITHUB_OUTPUT}"
+      - env:
+          RES="${{ steps.source.outputs.RESULT }}"
+        run: echo "::notice::${RES}"
