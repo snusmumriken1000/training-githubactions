@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: source
-        run: echo "RESULT=result-1" > "${GITHUB_OUTPUT}"
+        run: echo "result=result-1" >> "${GITHUB_OUTPUT}"
       - env:
-          RES="${{ steps.source.outputs.RESULT }}"
+          RES="${{ steps.source.outputs.reuslt }}"
         run: echo "::notice::${RES}"
