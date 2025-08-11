@@ -2,6 +2,7 @@ name: Call external script
 on: workflow_dispatch
 jobs:
   external:
+    runs-on: ubuntu-latest
     steps:
       - run: "${GITHUB_ACTION_PATH}/hello.sh"
         shell: bash
