@@ -43,5 +43,5 @@ jobs:
       - id: source
         run: echo "result=result-1" >> "${GITHUB_OUTPUT}"
       - env:
-          RES="${{ steps.source.outputs.reuslt }}"
+          RES="${{ steps.source.outputs.result }}"
         run: echo "::notice::${RES}"
