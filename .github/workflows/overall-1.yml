@@ -1,4 +1,4 @@
-name: Annotation
+name: Over all
 on: workflow_dispatch
 jobs:
   log:
