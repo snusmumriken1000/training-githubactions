@@ -196,5 +196,28 @@ TODO
   - `GITHUB_TOKEN` をアクションから参照
     - メタデータ構文では secrets の参照ができないが、`secrets.GITHUB_TOKEN` に限っては裏技でアクセスできる。github コンテキスト経由でアクセスする。 `github.token`
   - sh スクリプトを切り出したら、環境変数 `GITHUB_ACTION_PATH` 経由すれば実行できる。`run: "${GITHUB_ACTION_PATH}/script.sh"`
-    - .shに対してPermission deniedが出る場合は、`git update-index --add --chmod=+x hello.sh `
-
+    - .shに対してPermission deniedが出る場合は、`git update-index --add --chmod=+x hello.sh`
+  - 環境変数による暗黙的な依存の回避
+    - 値の受渡が必要な場合は、inputs, outputs キーで明示的にやりとりする。ただし、デフォルト環境変数は安定しているため、	仕様のリスクは低い。
+  - ロググループの活用
+- よく使うブランチプロテクションルール
+  1. マージ前のPR作成を必須にする
+    - 「Require a pull request before merging」
+  1. 他社の承認を必須にする
+    - 「Require approvals」
+    - PRを出した人自身は承認者になれないため、事実上コードレビューが必須になる
+  1. 承認後に新しいコミットがプッシュされたら承認を取り消す
+    - 「Dismiss state pull request approvals when new commits are pushed」
+    - もれなくコードレビューを実施したい場合に役立つ
+  1. マージ前のステータスチェックを必須にする
+    - 「Require status checks to pass before merging」
+    - すべてのステータスチェック成功時にのみマージを許可する
+  1. 管理者のバイパスを許可しない
+    - 「Do not allow bypassing the above settings」
+    - リポジトリ管理者にもルールを強制する
+      - デフォルトでは、リポジトリ管理者はブランチプレオテクションルールを無視できてしまう
+  1. 強制プッシュとブランチ削除の禁止
+    - 「Allow force pushes」「Alow deletions」を無効化しておく
+  1. バランス感覚を失わない
+    - 使ってみて（実験してみて）、メリットがデメリットを上回るか確認する。ダメなら戻す。
+    
